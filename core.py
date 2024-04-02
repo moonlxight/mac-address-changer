@@ -31,6 +31,7 @@ def mac_changer():
     except Exception as e:
         print(Fore.RED + " [WARNING] An error occurred while changing MAC address." + Style.RESET_ALL)
     input("Press Enter to continue...")
+    clear_screen()
 
 def display_menu():
     stdout.write(Fore.RED + arts.mac_address)
@@ -51,9 +52,17 @@ def show_current_mac():
     except Exception as e:
         print(Fore.RED + " [WARNING] An error occurred while retrieving current MAC address." + Style.RESET_ALL)
     input("Press Enter to continue...")
+    clear_screen()
+
+def clear_screen():
+    if name == 'nt':
+        system('cls')
+    else:
+        system('clear')
 
 def main():
     while True:
+        clear_screen()
         display_menu()
         choice = input("Enter your choice: ")
         if choice == "1":
