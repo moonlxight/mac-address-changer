@@ -3,6 +3,7 @@ import sys
 import requests
 import random
 import colorama
+import subprocess
 import arts
 import re
 from os import system, name
@@ -19,5 +20,8 @@ def clear():
         system('clear')
 clear()
 system("title TwistyJead's Mac Address Changer Tool")
-stderr.writelines(Fore.RED+arts.mac_address+Fore.LIGHTCYAN_EX+arts.changer)
+stderr.writelines(Fore.RED+arts.mac_address+Fore.LIGHTCYAN_EX+arts.changer+Fore.LIGHTYELLOW_EX+arts.dev)
+
+
+
 input()
