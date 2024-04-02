@@ -20,8 +20,16 @@ def clear():
         system('clear')
 clear()
 system("title TwistyJead's Mac Address Changer Tool")
-stderr.writelines(Fore.RED+arts.mac_address+Fore.LIGHTCYAN_EX+arts.changer+Fore.LIGHTYELLOW_EX+arts.dev)
 
+try:
+    stderr.writelines(Fore.LIGHTYELLOW_EX+arts.dev)
+    clear()
+    stderr.writelines(Fore.RED+arts.mac_address+Fore.LIGHTCYAN_EX+arts.changer)
+except Exception as e:
+    stderr.writelines("An error has occured!")
 
+def display_menu():
+    print("\033[1;93m[01] Start\033[0m")
 
+display_menu()
 input()
