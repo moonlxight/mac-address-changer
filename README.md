@@ -11,9 +11,36 @@ This is a simple Python script to change the MAC address of a network interface 
 ## Installation
 
 1. Clone the repository:
-
+```
 https://github.com/moonlxight/mac-changer
-
+```
 
 2. Change into the project directory:
+```
+git clone https://github.com/moonlxight/mac-adress-changer
+```
 
+3. Run the script:
+```
+python3 core.py
+```
+
+## Usage
+
+Follow the on-screen instructions to choose the desired action:
+
+1. Change MAC Address
+2. Show Current MAC Address
+3. Exit
+
+## Configuration
+
+You can configure the network interface name in the `config.ini` file. (default -> eth0)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Credits
+
+This project was developed by [TwistyJead](https://github.com/moonlxight).
