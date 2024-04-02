@@ -1,2 +1,2 @@
 cls
-python mac_changer.py
+python core.py
