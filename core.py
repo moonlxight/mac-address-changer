@@ -12,7 +12,12 @@ init()
 
 charList = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
 newMac = ""
-
+def clear():
+    if name == 'nt':
+        system('cls')
+    else:
+        system('clear')
+clear()
 system("title TwistyJead's Mac Address Changer Tool")
-stderr.writelines(art.art_mac_address_changer_tool)
+stderr.writelines(art.mac_address_changer)
 input()
