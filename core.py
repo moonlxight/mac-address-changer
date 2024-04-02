@@ -36,7 +36,7 @@ def mac_changer():
 def display_menu():
     stdout.write(Fore.RED + arts.mac_address)
     stdout.write(Fore.LIGHTCYAN_EX + arts.changer)
-    stdout.write(Fore.YELLOW + arts.dev)
+    stdout.write(Fore.LIGHTMAGENTA_EX + arts.dev)
     stdout.write("\n"+"[1] Change MAC Address" + "\n")
     stdout.write("[2] Show Current MAC Address" + "\n")
     stdout.write("[3] Exit\n")
