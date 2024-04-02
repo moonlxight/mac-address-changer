@@ -4,12 +4,16 @@ import random
 import subprocess
 import arts
 import re
+import configparser
 from os import system, name
 from sys import stdout, stderr
 from colorama import Fore, Style, init
 
 init()
-
+def read_config():
+    config = configparser.ConfigParser()
+    config.read("config.ini")
+    return config['Network']['interface_name']
 def mac_changer():
     charList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
     newMac = ""
@@ -19,7 +23,8 @@ def mac_changer():
             newMac += ":"
     try:
         # Check the network interface name (You can customize this based on your system)
-        interface_name = "eth0"
+        #interface_name = "eth0"
+        interface_name = read_config()
         # Check the current MAC address
         ifconfigResult = subprocess.check_output(f"ifconfig {interface_name}", shell=True).decode()
         oldMac = re.search("ether(.*?)txqueuelen", ifconfigResult).group(1).strip()
@@ -36,10 +41,10 @@ def mac_changer():
 def display_menu():
     stdout.write(Fore.RED + arts.mac_address)
     stdout.write(Fore.LIGHTCYAN_EX + arts.changer)
-    stdout.write(Fore.LIGHTMAGENTA_EX + arts.dev)
-    stdout.write("\n"+"[1] Change MAC Address" + "\n")
-    stdout.write("[2] Show Current MAC Address" + "\n")
-    stdout.write("[3] Exit\n")
+    stdout.write(Fore.RED + arts.dev + Fore.LIGHTMAGENTA_EX)
+    stdout.write(Fore.LIGHTMAGENTA_EX + "\n" + "[1]" + Fore.LIGHTCYAN_EX + " Change MAC Address" + "\n")
+    stdout.write(Fore.LIGHTMAGENTA_EX + "[2]" + Fore.LIGHTCYAN_EX + " Show Current MAC Address" + "\n")
+    stdout.write(Fore.LIGHTMAGENTA_EX + "[3]" + Fore.LIGHTCYAN_EX + " Exit" + "\n" + "\n")
 
 def show_current_mac():
     try:
@@ -64,7 +69,7 @@ def main():
     while True:
         clear_screen()
         display_menu()
-        choice = input("Enter your choice: ")
+        choice = input(Fore.LIGHTCYAN_EX + "Enter your choice: " + Fore.LIGHTGREEN_EX)
         if choice == "1":
             mac_changer()
         elif choice == "2":
