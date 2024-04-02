@@ -12,7 +12,7 @@ This is a simple Python script to change the MAC address of a network interface 
 
 1. Clone the repository:
 ```
-git clone https://github.com/moonlxight/mac-adress-changer
+git clone https://github.com/moonlxight/mac-address-changer
 ```
 
 2. Change into the project directory:
